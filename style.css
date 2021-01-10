@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.friends-list, .add-friend-form {
+    height: 100%;
+}
+
+.friends-list {
+    width: 50%;
+    background: lightslategray;
+}
+
+.add-friend-form {
+    width: 100%;
+    background: lightskyblue;
+}
+
