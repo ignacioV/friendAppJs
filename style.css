@@ -16,7 +16,25 @@
 
 .friends-list {
     width: 50%;
-    background: lightslategray;
+    background: black;
+    color: white;
+}
+
+.friends-list-header {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.table>tbody>tr>td,
+.table>tbody>tr>th {
+  border-top: none;
 }
 
 .add-friend-form {

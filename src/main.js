@@ -1,3 +1,3 @@
-import { app } from "./service.js";
+import { app } from "./app/service.js";
 
 app();
