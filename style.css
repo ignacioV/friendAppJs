@@ -17,7 +17,7 @@
 .friends-list {
     width: 50%;
     background: black;
-    color: white;
+    color: gainsboro;
 }
 
 .friends-list-header {
@@ -39,6 +39,15 @@
 
 .add-friend-form {
     width: 100%;
-    background: lightskyblue;
+    color:gainsboro;
+    background: rgb(15, 15, 15);
 }
 
+.new-friend-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    display: flex;
+}
