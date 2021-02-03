@@ -1,4 +1,4 @@
-import { fetchJson } from "./json-fetch.js"
+import { fetchJson } from "../utils/json-fetch.js"
 
 export async function makeFriendsList() {
     let data
