@@ -51,3 +51,7 @@
 .input {
     display: flex;
 }
+
+.hide {
+    display: none;
+}
