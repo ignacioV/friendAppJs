@@ -4,7 +4,8 @@
   "description": "https://www.mockaroo.com/ cia galima susigeneruoti random data",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon -e js,html,css app.js",
+    "watch": "nodemon -e js,html,css app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +19,11 @@
   },
   "homepage": "https://github.com/ignacioV/friendAppJs#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "connect-livereload": "^0.6.1",
+    "express": "^4.17.1",
+    "livereload": "^0.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }

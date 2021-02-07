@@ -4,7 +4,7 @@ export async function makeFriendsList() {
     let data
     await fetchJson("/data/MOCK_DATA.json").then(resp => data = resp)
 
-    // console.log(data)
+    // console.log(data)s
 
     let fiendsTable = document.getElementById('friends-table')
 
