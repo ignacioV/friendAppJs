@@ -16,3 +16,8 @@ const server = http.createServer((req, res) => {
 server.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
   });
+
+// export function addToFile() {
+//   console.log("addin to file");
+//   fs.appendFile("../data/MOCK_DATA.json", "lol", err => {console.error(err)})   
+// }
