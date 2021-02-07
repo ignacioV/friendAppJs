@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ignacioV/friendAppJs/issues"
   },
-  "homepage": "https://github.com/ignacioV/friendAppJs#readme"
+  "homepage": "https://github.com/ignacioV/friendAppJs#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
