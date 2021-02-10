@@ -2,7 +2,7 @@ import { fetchJson } from "../../utils/json-fetch.js"
 
 export async function makeFriendsList() {
     let data
-    await fetchJson("/data/MOCK_DATA.json").then(resp => data = resp)
+    await fetchJson("/friends").then(resp => data = resp)
 
     // console.log(data)s
 
