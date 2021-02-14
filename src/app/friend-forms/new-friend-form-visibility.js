@@ -5,7 +5,6 @@ export function handleNewFriendFormVisibility() {
     let newFrienForm = document.getElementById("add-friend-form-container")
 
     handleFormVisibility(newFrienForm, openFormBtn, prepareSaveNewFriend)
-    
 }
 
 export function handleUpdateFriendFormVisibility() {

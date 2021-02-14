@@ -3,10 +3,12 @@ import { fetchModifying } from "../../utils/json-fetch.js"
 function newFriendForm() {
     let newFN = document.getElementById("name-input").value  
     let newLN = document.getElementById("last-name-input").value
+    let rating = document.getElementById("rating-input").value
 
     return {
         fn: newFN,
-        ln: newLN
+        ln: newLN,
+        rating: rating
     }
 }
 

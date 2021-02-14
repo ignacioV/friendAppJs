@@ -57,7 +57,8 @@ app.post('/friends', (req, res) => {
 
   const mongoNewFriend = {
     first_name: newFriend.fn,
-    last_name: newFriend.ln
+    last_name: newFriend.ln,
+    rating: newFriend.rating
   }
 
   console.log("inserting this", mongoNewFriend);

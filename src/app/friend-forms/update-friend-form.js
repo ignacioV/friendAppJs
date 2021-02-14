@@ -1,9 +1,10 @@
 import { fetchModifying } from "../../utils/json-fetch.js"
 
 function populateForm(selectedRow) {
+    document.getElementById("entry-id").value = selectedRow.id
+
     document.getElementById("name-input").value = selectedRow.childNodes[0].innerText
     document.getElementById("last-name-input").value = selectedRow.childNodes[1].innerText
-    document.getElementById("entry-id").value = selectedRow.id
 }
 
 function getFormValues() {
@@ -41,5 +42,6 @@ export function prepareUpdateNewFriend() {
 
 export function openUpdateForm(selectedRow) {
     // console.log(selectedRow);
+    //TODO pasiimti is mongo pagal id, ir tada usetinti fieldus
     populateForm(selectedRow)
 }
