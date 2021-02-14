@@ -13,9 +13,11 @@ export async function makeFriendsList() {
 
         let fname = row.insertCell()
         let lname = row.insertCell()
+        let editButton = row.insertCell()
 
         fname.innerHTML = friend.first_name
         lname.innerHTML = friend.last_name
+        editButton.innerHTML = `<i id="edit-btn" class="fa fa-edit"></i>`
     })
 
     // console.log(fiendsTable)
