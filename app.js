@@ -49,16 +49,33 @@ app.get('/friends', (req, res) => {
   })
 })
 
+app.get('/friends/:id', (req, res) => {
+  MongoClient.connect(mongoUrl, (err, db) => {
+    if (err) {
+      throw err;
+    }
+    let testDB = db.db("test");
+    let query = {"_id": new ObjectId(req.params.id)}
+    testDB.collection("friend").findOne(query, (err, result) => {
+      if (err) {
+        throw err;
+      }
+      // console.log(result);
+      res.json(result);
+      db.close();
+    })
+  })
+})
+
 app.post('/friends', (req, res) => {
   // const newFriend = JSON.parse(req);
-  const newFriend = req.body;
-  console.log('new friend request body', newFriend)
+  console.log('new friend request body', req.body)
   
 
   const mongoNewFriend = {
-    first_name: newFriend.fn,
-    last_name: newFriend.ln,
-    rating: newFriend.rating
+    first_name: req.body.fn,
+    last_name: req.body.ln,
+    rating: req.body.rating
   }
 
   console.log("inserting this", mongoNewFriend);
@@ -82,14 +99,13 @@ app.post('/friends', (req, res) => {
 })
 
 
-app.put('/friends', (req, res) => {
-  // const newFriend = JSON.parse(req);
-  const updateFriend = req.body;
-  console.log('update friend request body', updateFriend)
+app.put('/friends/:id', (req, res) => {
+  console.log('update friend request body', req.body)
   
   const mongoUpdateFriend = {
-    first_name: updateFriend.fn,
-    last_name: updateFriend.ln
+    first_name: req.body.fn,
+    last_name: req.body.ln,
+    rating: req.body.rating
   }
 
   console.log("update this", mongoUpdateFriend);
@@ -100,7 +116,7 @@ app.put('/friends', (req, res) => {
     }
     let testDB = db.db("test");
 
-    let query = { _id: ObjectId(updateFriend.id) };
+    let query = { _id: ObjectId(req.params.id) };
     let newValue = { $set: mongoUpdateFriend };
 
     testDB.collection("friend").findOneAndUpdate(query, newValue, (err, result) => {

@@ -1,21 +1,25 @@
-import { fetchModifying } from "../../utils/json-fetch.js"
+import { fetchModifying, fetchGET } from "../../utils/json-fetch.js"
 
-function populateForm(selectedRow) {
-    document.getElementById("entry-id").value = selectedRow.id
+function populateForm(selectedEntry) {
+    document.getElementById("entry-id").value = selectedEntry._id
 
-    document.getElementById("name-input").value = selectedRow.childNodes[0].innerText
-    document.getElementById("last-name-input").value = selectedRow.childNodes[1].innerText
+    document.getElementById("name-input").value = selectedEntry.first_name
+    document.getElementById("last-name-input").value = selectedEntry.last_name
+    document.getElementById("rating-input").value = selectedEntry.rating
 }
 
 function getFormValues() {
+    let id = document.getElementById("entry-id").value
+
     let updateName = document.getElementById("name-input").value  
     let updateLN = document.getElementById("last-name-input").value
-    let id = document.getElementById("entry-id").value
+    let updateRating = document.getElementById("rating-input").value
 
     return {
         id: id,
         fn: updateName,
-        ln: updateLN
+        ln: updateLN,
+        rating: updateRating
     }
 }
 
@@ -29,7 +33,7 @@ export function prepareUpdateNewFriend() {
         let updateFriend = getFormValues()
         let requestBody = JSON.stringify(updateFriend)
 
-        fetchModifying('/friends', {
+        fetchModifying(`/friends/${updateFriend.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -42,6 +46,6 @@ export function prepareUpdateNewFriend() {
 
 export function openUpdateForm(selectedRow) {
     // console.log(selectedRow);
-    //TODO pasiimti is mongo pagal id, ir tada usetinti fieldus
-    populateForm(selectedRow)
+    fetchGET(`/friends/${selectedRow.id}`)
+        .then(selectedEntry => populateForm(selectedEntry))
 }
