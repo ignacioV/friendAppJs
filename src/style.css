@@ -67,3 +67,27 @@
 .hide {
     display: none;
 }
+
+.green-dot {
+  height: 10px;
+  width: 10px;
+  background-color: #44c044bb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.yellow-dot {
+  height: 10px;
+  width: 10px;
+  background-color: #fcff55bb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.red-dot {
+  height: 10px;
+  width: 10px;
+  background-color: #e04444bb;
+  border-radius: 50%;
+  display: inline-block;
+}

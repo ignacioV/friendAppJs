@@ -20,7 +20,21 @@ export async function makeFriendsList() {
         let lname = tr.insertCell()
         let editButton = tr.insertCell()
 
-        fname.innerHTML = friend.first_name
+        const rating = friend.rating
+        let dotColor;
+        switch(true) {
+            case (rating <= 3):
+                dotColor = 'green';
+                break;
+            case (rating > 3 && rating <= 6):
+                dotColor = 'yellow';
+                break;
+            case (rating > 6):
+                dotColor = 'red'
+                break;
+
+        }
+        fname.innerHTML = `<span class="${dotColor}-dot"></span> ${friend.first_name}`
         fname.id = "fn"
         lname.innerHTML = friend.last_name
         lname.id = "ln"
