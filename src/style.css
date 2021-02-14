@@ -45,6 +45,14 @@
   border-top: none;
 }
 
+.list-entry-fn, .list-entry-ln {
+    width: 45%;
+}
+
+.list-entry-btns {
+    width: 10%;
+}
+
 .add-friend-form {
     width: 100%;
     color:gainsboro;

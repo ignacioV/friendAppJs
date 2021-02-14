@@ -98,7 +98,6 @@ app.post('/friends', (req, res) => {
 
 })
 
-
 app.put('/friends/:id', (req, res) => {
   console.log('update friend request body', req.body)
   
@@ -127,6 +126,30 @@ app.put('/friends/:id', (req, res) => {
       // res.json(result);
       db.close();
       res.status(200).json({message: 'updated'}) 
+    })
+  })
+
+})
+
+app.delete('/friends/:id', (req, res) => {
+  console.log('deleting friend request body', req.params.id)
+
+  MongoClient.connect(mongoUrl, (err, db) => {
+    if (err) {
+      throw err;
+    }
+    let testDB = db.db("test");
+
+    let query = { _id: ObjectId(req.params.id) };
+
+    testDB.collection("friend").deleteOne(query, (err, result) => {
+      if (err) {
+        throw err;
+      }
+      // console.log("inserting friend", result);
+      // res.json(result);
+      db.close();
+      res.status(200).json({message: 'deleted'}) 
     })
   })
 

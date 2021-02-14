@@ -1,4 +1,5 @@
 import { fetchModifying, fetchGET } from "../../utils/json-fetch.js"
+import { getFriendsList } from "../list/friends-list.js"
 
 function populateForm(selectedEntry) {
     document.getElementById("entry-id").value = selectedEntry._id
@@ -39,8 +40,7 @@ export function prepareUpdateNewFriend() {
                 'Content-Type': 'application/json'
             },
             body: requestBody
-        }).then(res => console.log(res))
-        document.location.reload()
+        }).then(res => getFriendsList(false))
     }
 }
 

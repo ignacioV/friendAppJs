@@ -4,7 +4,7 @@ import { toggleRemoval } from "./list/remove-friend.js"
 export function app() {
     console.log("running app")
 
-    getFriendsList();
+    getFriendsList(true);
     // saveNewFriend();
     handleNewFriendFormVisibility();
     toggleRemoval()

@@ -1,4 +1,5 @@
 import { fetchModifying } from "../../utils/json-fetch.js"
+import { getFriendsList } from "../list/friends-list.js"
 
 function newFriendForm() {
     let newFN = document.getElementById("name-input").value  
@@ -15,6 +16,7 @@ function newFriendForm() {
 export function prepareSaveNewFriend() {
     document.getElementById("name-input").value = ''
     document.getElementById("last-name-input").value = ''
+    document.getElementById("rating-input").value = ''
 
     let executeBtn = document.getElementById("execute-friend-btn")
     executeBtn.innerText = "Create new"
@@ -31,7 +33,6 @@ export function prepareSaveNewFriend() {
                 'Content-Type': 'application/json'
             },
             body: requestBody
-        }).then(res => console.log(res))
-        document.location.reload()
+        }).then(res =>  getFriendsList(false))
     }
 }
