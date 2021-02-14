@@ -3,6 +3,7 @@ const path = require('path')
 const cors = require('cors')
 const fs = require('fs')
 const MongoClient = require('mongodb').MongoClient;
+const ObjectId = require('mongodb').ObjectId
 
 const HOST = 'localhost';
 const PORT = 3000;
@@ -52,7 +53,7 @@ app.post('/friends', (req, res) => {
   // const newFriend = JSON.parse(req);
   const newFriend = req.body;
   console.log('new friend request body', newFriend)
-  res.status(200).json({message: 'created'})  
+  
 
   const mongoNewFriend = {
     first_name: newFriend.name,
@@ -73,6 +74,42 @@ app.post('/friends', (req, res) => {
       // console.log("inserting friend", result);
       // res.json(result);
       db.close();
+      res.status(200).json({message: 'created'})  
+    })
+  })
+
+})
+
+
+app.put('/friends', (req, res) => {
+  // const newFriend = JSON.parse(req);
+  const updateFriend = req.body;
+  console.log('update friend request body', updateFriend)
+  
+  const mongoUpdateFriend = {
+    first_name: updateFriend.name,
+    last_name: updateFriend.tags
+  }
+
+  console.log("update this", mongoUpdateFriend);
+
+  MongoClient.connect(mongoUrl, (err, db) => {
+    if (err) {
+      throw err;
+    }
+    let testDB = db.db("test");
+
+    let query = { _id: ObjectId(updateFriend.id) };
+    let newValue = { $set: mongoUpdateFriend };
+
+    testDB.collection("friend").findOneAndUpdate(query, newValue, (err, result) => {
+      if (err) {
+        throw err;
+      }
+      // console.log("inserting friend", result);
+      // res.json(result);
+      db.close();
+      res.status(200).json({message: 'updated'}) 
     })
   })
 

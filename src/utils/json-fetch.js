@@ -6,7 +6,7 @@ export async function fetchGET(url) {
         return data;
 }
 
-export async function fetchPOST(url, body) {
+export async function fetchModifying(url, body) {
         const resp = await fetch(HOST + url, body);
         const data = await resp.json()
         return data;

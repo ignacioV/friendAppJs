@@ -56,6 +56,10 @@
     flex-direction: column;
 }
 
+.button {
+    cursor: pointer;
+}
+
 .input {
     display: flex;
 }
