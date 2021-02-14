@@ -56,8 +56,8 @@ app.post('/friends', (req, res) => {
   
 
   const mongoNewFriend = {
-    first_name: newFriend.name,
-    last_name: newFriend.tags
+    first_name: newFriend.fn,
+    last_name: newFriend.ln
   }
 
   console.log("inserting this", mongoNewFriend);
@@ -87,8 +87,8 @@ app.put('/friends', (req, res) => {
   console.log('update friend request body', updateFriend)
   
   const mongoUpdateFriend = {
-    first_name: updateFriend.name,
-    last_name: updateFriend.tags
+    first_name: updateFriend.fn,
+    last_name: updateFriend.ln
   }
 
   console.log("update this", mongoUpdateFriend);

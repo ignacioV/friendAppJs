@@ -7,14 +7,14 @@ function populateForm(selectedRow) {
 }
 
 function getFormValues() {
-    let newName = document.getElementById("name-input").value  
-    let newTags = document.getElementById("last-name-input").value
+    let updateName = document.getElementById("name-input").value  
+    let updateLN = document.getElementById("last-name-input").value
     let id = document.getElementById("entry-id").value
 
     return {
         id: id,
-        name: newName,
-        tags: newTags
+        fn: updateName,
+        ln: updateLN
     }
 }
 
