@@ -23,5 +23,6 @@ export function saveNewFriend() {
             },
             body: requestBody
         }).then(res => console.log(res))
+        document.location.reload()
     }
 }
